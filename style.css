@@ -1,170 +1,301 @@
-/* Variables de la paleta Dark/Red */
-:root {
-    --black: #0d0d0d;
-    --dark-gray: #1a1a1a;
-    --accent: #ff3333;
-    --white: #ffffff;
-    --glass: rgba(255, 255, 255, 0.05);
-}
-
-* {
-    margin: 0; padding: 0; box-sizing: border-box;
-    scroll-behavior: smooth;
-    font-family: 'Inter', sans-serif;
+/* --- ESTILO GENERAL SNEAKERS DRAGONS --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 body {
-    background-color: var(--black);
-    color: var(--white);
-    line-height: 1.6;
+    background-color: #000 !important;
+    font-family: 'Impact', sans-serif;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh; 
+    padding-bottom: 50px; 
+    color: #999; 
+    overflow-x: hidden;
 }
 
-/* Header con efecto de cristal desenfocado */
-.main-header {
-    background: rgba(13, 13, 13, 0.9);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    position: fixed; width: 100%; top: 0; z-index: 1000;
+/* El fondo de lluvia de zapatillas */
+#sneaker-rain { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
+    pointer-events: none; 
 }
 
-.nav-container {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 8%;
+header { 
+    text-align: center; 
+    margin: 30px 0 10px 0; 
 }
 
-.logo {
-    font-family: 'Syncopate', sans-serif; font-size: 1.6rem; letter-spacing: -2px;
-}
-.logo span { color: var(--accent); }
-
-.nav-links { display: flex; list-style: none; gap: 40px; }
-.nav-links a {
-    color: var(--white); text-decoration: none; font-weight: 700; font-size: 0.8rem;
-    letter-spacing: 2px; transition: 0.3s;
-}
-.nav-links a:hover { color: var(--accent); }
-
-.cart-icon { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; }
-.badge {
-    background: var(--accent); color: white; border-radius: 50%;
-    padding: 2px 8px; font-size: 0.7rem; font-weight: bold;
+h1 { 
+    font-size: 3.5rem; 
+    color: #ff0000; 
+    text-shadow: 0 0 20px #ff0000; 
 }
 
-/* Hero Moderno */
-.hero {
-    height: 90vh;
-    background: url('https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1920&q=80') center/cover;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; text-align: center;
-}
-.hero__overlay {
-    position: absolute; inset: 0; background: linear-gradient(to top, var(--black) 10%, transparent 80%);
-}
-.hero__content { position: relative; z-index: 10; padding: 0 20px; }
-.tag { color: var(--accent); font-weight: 700; letter-spacing: 5px; font-size: 0.9rem; }
-.hero__content h2 {
-    font-family: 'Syncopate', sans-serif; font-size: 5vw; margin: 20px 0; line-height: 1.1;
+.subtitle { 
+    color: #ff0000; 
+    font-size: 1.1rem; 
+    letter-spacing: 5px; 
+    opacity: 0.5; 
+    text-transform: uppercase; 
 }
 
-.btn-main, .btn-outline {
-    padding: 15px 40px; text-decoration: none; font-weight: 700; border-radius: 5px; transition: 0.3s;
-}
-.btn-main { background: var(--white); color: var(--black); margin-right: 15px; }
-.btn-main:hover { background: var(--accent); color: white; }
-.btn-outline { border: 2px solid var(--white); color: var(--white); }
-.btn-outline:hover { background: var(--white); color: var(--black); }
-
-/* Bento Grid Categorías Rápida */
-.bento-categories {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 15px;
-    padding: 50px 8%;
-    margin-top: -60px; /* Superposición con el Hero */
-    position: relative; z-index: 20;
+/* FRASE CON BRILLO ANIMADO */
+.frase-futuro { 
+    width: 100%; 
+    margin-bottom: 30px; 
+    text-align: center; 
 }
 
-.bento-item {
-    background: var(--dark-gray);
-    border-radius: 15px; overflow: hidden;
-    position: relative; cursor: pointer; transition: 0.5s;
-    height: 350px;
+.frase-futuro span {
+    font-size: 1.5rem; 
+    color: #fff; 
+    text-shadow: 0 0 15px #ff0000;
+    font-style: italic; 
+    text-transform: uppercase;
+    animation: brillo 1.5s ease-in-out infinite; 
+    display: inline-block;
 }
-.bento-item:hover { transform: scale(1.02); filter: grayscale(0); }
-.bento-item img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: grayscale(0.8); transition: 0.5s;
-}
-.bento-item:hover img { filter: grayscale(0); }
 
-.bento-text {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 30px; z-index: 2;
+@keyframes brillo {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 25px #ff0000, 0 0 5px #fff; }
 }
-.bento-text h4 { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; }
-.bento-text p { font-size: 0.9rem; opacity: 0.8; }
 
-/* Tarjetas de Producto Modernas */
-.products-section { padding: 80px 8%; }
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-header h3 { font-family: 'Syncopate', sans-serif; font-size: 2.2rem; }
+/* --- FORMULARIO --- */
+.main-content { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    width: 95%; 
+    max-width: 1200px; 
+}
 
-.products-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+.form-container { 
+    background: rgba(10, 10, 10, 0.9); 
+    padding: 25px; 
+    border: 2px solid #222; 
+    border-radius: 12px; 
+    width: 350px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-.product-card {
-    background: var(--dark-gray); border-radius: 20px;
-    padding: 15px; transition: 0.4s; border: 1px solid rgba(255,255,255,0.03);
-}
-.product-card:hover { background: #222; border-color: var(--accent); transform: translateY(-5px); }
-.product-img-container {
-    height: 280px; border-radius: 15px; overflow: hidden; position: relative;
-}
-.product-img-container img { width: 100%; height: 100%; object-fit: cover; }
-.sale-tag {
-    position: absolute; top: 12px; left: 12px;
-    background: var(--accent); color: white;
-    padding: 5px 15px; font-size: 0.7rem; font-weight: 700; border-radius: 5px;
-}
-.product-card__info { padding: 25px 10px; text-align: center; }
-.product-card h4 { font-size: 1.1rem; letter-spacing: 1px; }
-.price { color: var(--accent); font-weight: 700; font-size: 1.4rem; margin: 15px 0; }
-.btn-add {
-    width: 100%; padding: 12px; background: transparent;
-    border: 1px solid var(--white); color: var(--white);
-    font-weight: 700; cursor: pointer; border-radius: 5px; transition: 0.3s;
-}
-.btn-add:hover { background: var(--white); color: var(--black); }
 
-/* Newsletter Estilo Moderno */
-.vip-contact { padding: 100px 8%; }
-.contact-card {
-    background: var(--accent); padding: 70px;
-    border-radius: 30px; display: flex; justify-content: space-between; align-items: center;
+label { 
+    display: block; 
+    color: #ff1a1a; 
+    margin-top: 15px; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
 }
-.contact-text { max-width: 50%; }
-.contact-text h3 { font-family: 'Syncopate', sans-serif; font-size: 2rem; color: #fff; }
-.contact-text p { color: #fff; opacity: 0.9; }
-.newsletter-form { display: flex; gap: 15px; }
-.newsletter-form input {
-    padding: 15px 25px; border-radius: 50px; border: none; width: 350px; font-weight: 500;
-}
-.newsletter-form button {
-    padding: 15px 40px; border-radius: 50px; border: none;
-    background: var(--black); color: var(--white); font-weight: 700; cursor: pointer; transition: 0.3s;
-}
-.newsletter-form button:hover { background: #1a1a1a; }
 
-.main-footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: #555; }
+input, select { 
+    width: 100%; 
+    padding: 12px; 
+    background: #000; 
+    border: 1px solid #333; 
+    color: #fff; 
+    margin-top: 5px; 
+    border-radius: 4px; 
+    transition: all 0.3s ease;
+}
 
-/* Adaptación para Celulares */
-@media (max-width: 900px) {
-    .bento-categories { grid-template-columns: 1fr; margin-top: 20px; }
-    .hero__content h2 { font-size: 8vw; }
-    .hero-btns { display: flex; flex-direction: column; gap: 10px; }
-    .btn-main { margin-right: 0; }
-    .contact-card { flex-direction: column; text-align: center; gap: 30px; padding: 40px; }
-    .newsletter-form { flex-direction: column; width: 100%; }
-    .newsletter-form input { width: 100%; }
+input:focus { 
+    border-color: #ff0000; 
+    outline: none; 
+    box-shadow: 0 0 12px #ff0000; 
+    background: #0a0a0a;
+}
+
+/* --- ANIMACIÓN BOTÓN AGREGAR (EL ROJO GRANDE) --- */
+button#btn-add {
+    width: 100%; 
+    padding: 15px; 
+    background: #ff0000; 
+    border: none; 
+    color: #fff;
+    font-weight: bold; 
+    font-family: 'Impact'; 
+    cursor: pointer; 
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4); 
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* La transición suave para que la animación se vea bien */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button#btn-add:hover {
+    transform: scale(1.05) translateY(-3px); /* Se agranda y sube un poco */
+    background: #fff;
+    color: #ff0000;
+    box-shadow: 0 10px 25px #fff; /* Brillo blanco intenso */
+}
+
+button#btn-add:active {
+    transform: scale(0.95) translateY(0); /* Se encoge al hacer clic */
+    box-shadow: 0 2px 10px #ff0000;
+}
+
+/* --- BOTONES EDITAR Y BORRAR (ESTILO GAMER) --- */
+.btn-group { 
+    display: flex; 
+    gap: 8px; 
+    margin-top: 15px; 
+}
+
+.btn-action { 
+    flex: 1; 
+    padding: 10px; 
+    cursor: pointer; 
+    border: none; 
+    color: #fff; 
+    font-family: 'Impact'; 
+    border-radius: 4px;
+    text-transform: uppercase;
+    /* Efecto de profundidad inicial */
+    transition: all 0.2s ease;
+}
+
+/* Botón Editar (Naranja) */
+.btn-edit { 
+    background: #cc7a00; 
+    border-bottom: 4px solid #804d00; 
+}
+
+.btn-edit:hover { 
+    background: #ff9900; 
+    transform: translateY(-4px); 
+    box-shadow: 0 6px 15px rgba(204, 122, 0, 0.5); 
+}
+
+.btn-edit:active { 
+    transform: translateY(0); 
+    border-bottom: 0; /* Se hunde el botón */
+}
+
+/* Botón Borrar (Rojo Oscuro) */
+.btn-delete { 
+    background: #660000; 
+    border-bottom: 4px solid #330000; 
+}
+
+.btn-delete:hover { 
+    background: #ff0000; 
+    transform: translateY(-4px); 
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5); 
+}
+
+.btn-delete:active { 
+    transform: translateY(0); 
+    border-bottom: 0; /* Se hunde el botón */
+}
+
+/* --- TARJETAS DE INVENTARIO --- */
+#inventory-list { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 20px; 
+    flex: 1; 
+}
+
+.sneaker-card { 
+    background: #111; 
+    padding: 20px; 
+    border: 2px solid #ff0000; 
+    border-radius: 12px; 
+    text-align: center; 
+    transition: all 0.4s ease;
+}
+
+.sneaker-card:hover { 
+    transform: translateY(-10px); /* La tarjeta flota */
+    border-color: #fff; 
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2); 
+}
+
+.sneaker-img-container { 
+    width: 100%; 
+    height: 150px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 10px; 
+}
+
+.sneaker-img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; 
+    transition: transform 0.5s ease;
+}
+
+.sneaker-card:hover .sneaker-img {
+    transform: scale(1.1) rotate(5deg); /* La zapatilla se mueve un poco al pasar el mouse */
+}
+
+.valor-precio { 
+    color: #00ff66; 
+    font-size: 1.6rem; 
+    font-weight: bold; 
+    display: block; 
+    margin: 10px 0; 
+    text-shadow: 0 0 10px rgba(0,255,102,0.3);
+}
+
+/* --- MENÚ DE SUGERENCIAS --- */
+.hybrid-select { position: relative; width: 100%; }
+
+.options-container { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    width: 100%; 
+    background: #111; 
+    border: 1px solid #ff0000; 
+    z-index: 1000; 
+    max-height: 180px; 
+    overflow-y: auto; 
+    box-shadow: 0 10px 20px #000;
+}
+
+.options-container.active { display: block; }
+
+.option-item { 
+    padding: 12px; 
+    cursor: pointer; 
+    border-bottom: 1px solid #222; 
+    color: #fff; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    transition: 0.2s;
+}
+
+.option-item:hover { 
+    background: #ff0000; 
+    color: #000; 
+    padding-left: 20px; /* Se mueve a la derecha al pasar el mouse */
+}
+
+/* --- MENSAJE DE ALERTA FLOTANTE --- */
+#alert-msg { 
+    position: fixed; 
+    top: 20px; 
+    right: -400px; 
+    background: #00ff66; 
+    color: #000; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efecto elástico al aparecer */
+    z-index: 9999; 
+    box-shadow: 0 0 25px #00ff66;
+    text-transform: uppercase;
 }

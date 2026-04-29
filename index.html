@@ -3,125 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SneakerDRAGON| Premium Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>SNEAKERS DRAGONS | Stock System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="sneaker-rain"></canvas>
+    
+    <div id="alert-msg">ACCIÓN COMPLETADA CON EXITO!🔥</div>
 
-    <header class="main-header">
-        <nav class="nav-container">
-            <h1 class="logo">SNEAKER<span>DRAGON</span></h1>
-            <ul class="nav-links">
-                <li><a href="#drops">DROPS</a></li>
-                <li><a href="#categorias">COLECCIONES</a></li>
-                <li><a href="#contacto">CONTACTO</a></li>
-            </ul>
-            <div class="cart-icon">
-                <span class="icon">🛒</span>
-                <span class="badge">0</span>
-            </div>
-        </nav>
+    <header>
+        <h1>SNEAKERS DRAGONS🐉</h1>
+        <p class="subtitle">CONTROL GENERAL DE STOCK</p>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero__overlay"></div>
-            <div class="hero__content">
-                <span class="tag">NUEVA TEMPORADA 2026</span>
-                <h2>SÉ EL PRIMERO <br> EN PISAR EL FUTURO</h2>
-                <div class="hero-btns">
-                    <a href="#drops" class="btn-main">EXPLORAR DROPS</a>
-                    <a href="#contacto" class="btn-outline">SUSCRIBIRSE</a>
+    <div class="frase-futuro">
+        <span>SE EL PRIMERO EN PISAR EL FUTURO🔥</span>
+    </div>
+
+    <main class="main-content">
+        <section class="form-container">
+            <form id="sneaker-form">
+                <input type="hidden" id="edit-index" value="-1">
+                
+                <label>Modelo de Zapatilla:</label>
+                <div class="hybrid-select">
+                    <input type="text" id="model" placeholder="Escribe o selecciona..." autocomplete="off" required>
+                    <div id="select-options" class="options-container"></div>
                 </div>
-            </div>
+                
+                <label>Precio de Venta (CLP)</label>
+                <input type="number" id="price" placeholder="Ingresa un precio:" required>
+                
+                <label>Cantidad en Stock</label>
+                <input type="number" id="stock" placeholder="Ej: 10" required>
+                
+                <label>Categoría</label>
+                <select id="category">
+                    <option value="Urbano">Urbano</option>
+                    <option value="Retro">Retro</option>
+                    <option value="Deportivo">Deportivo</option>
+                </select>
+                
+                <button type="submit" id="btn-add">AGREGAR AL STOCK</button>
+            </form>
         </section>
 
-        <section id="categorias" class="bento-categories">
-            <div class="bento-item urban">
-                <div class="bento-text">
-                    <h4>URBANO</h4>
-                    <p>Sneakers Premium</p>
-                </div>
-                <img src="https://res.cloudinary.com/shelflife-cloud/image/upload/if_w_gt_1392,w_1392,q_auto:eco/v1575961299/editoruploads/nike-shox-tl-triple-black-bv1127-001-5.jpg" alt="Nike Shox-TL-triple-black">
-            </div>
-            <div class="bento-item sport">
-                <div class="bento-text">
-                    <h4>SPORT</h4>
-                    <p>Performance Tech</p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80" alt="Zapatilla Deportiva Verde">
-            </div>
-            <div class="bento-item luxury">
-                <div class="bento-text">
-                    <h4>LUXURY</h4>
-                    <p>Exclusive Design</p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80" alt="Zapatilla Lujo Beige">
-            </div>
-        </section>
-
-        <section id="drops" class="products-section">
-            <div class="section-header">
-                <h3>Lo más vendido</h3>
-                <p>Nuestros iconos, reinventados</p>
-            </div>
-            
-            <div class="products-grid">
-                <article class="product-card">
-                    <div class="product-img-container">
-                        <span class="sale-tag">HOT</span>
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Zapatilla Roja">
-                    </div>
-                    <div class="product-card__info">
-                        <h4>RED VELOCITY PRO</h4>
-                        <p class="price">$89.990</p>
-                        <button class="btn-add">Añadir al carrito</button>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQrZVy0H2Cmzkhgmpigqap7Iys6nu5YC-H5-jPZhkWE_y6CzGtT1mtKXmf743z6bu3y8ZWgqjmydErQxLQ-XX8hyNViiUWUieQh8rnyCQfc-7oxocUWtcuZvUA" alt="Zapatilla Air Jordan Retro 5 Black Metalic">
-                    </div>
-                    <div class="product-card__info">
-                        <h4>Air Jordan Retro 5 Black Metalic</h4>
-                        <p class="price">$74.990</p>
-                        <button class="btn-add">Añadir al carrito</button>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80" alt="Zapatilla Running Verde">
-                    </div>
-                    <div class="product-card__info">
-                        <h4>GREEN NEON RUN</h4>
-                        <p class="price">$95.000</p>
-                        <button class="btn-add">Añadir al carrito</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="contacto" class="vip-contact">
-            <div class="contact-card">
-                <div class="contact-text">
-                    <h3>ÚNETE AL CLUB</h3>
-                    <p>Sé el primero en saber de drops exclusivos.</p>
-                </div>
-                <form class="newsletter-form">
-                    <input type="nombre"placeholder="Tu nombre" required>
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit">UNIRSE</button>
-                </form>
-            </div>
-        </section>
+        <section id="inventory-list"></section>
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 SneakerDRAGON. DESARROLLADO POR CHRISTIAN JIMENEZ.</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
