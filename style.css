@@ -1,4 +1,4 @@
-/* --- ESTILO GENERAL SNEAKERS DRAGONS --- */
+* --- ESTILO GENERAL SNEAKERS DRAGONS --- */
 * { 
     margin: 0; 
     padding: 0; 
@@ -74,7 +74,8 @@ h1 {
     justify-content: center; 
     gap: 30px; 
     width: 95%; 
-    max-width: 1200px; 
+    max-width: 1200px;
+    margin-top: 80px; 
 }
 
 .form-container { 
@@ -212,6 +213,7 @@ button#btn-add:active {
     border-radius: 12px; 
     text-align: center; 
     transition: all 0.4s ease;
+    overflow: hidden;
 }
 
 .sneaker-card:hover { 
@@ -237,7 +239,7 @@ button#btn-add:active {
 }
 
 .sneaker-card:hover .sneaker-img {
-    transform: scale(1.1) rotate(5deg); /* La zapatilla se mueve un poco al pasar el mouse */
+    transform: scale(1.2); /* La zapatilla se mueve un poco al pasar el mouse */
 }
 
 .valor-precio { 
